@@ -1,0 +1,17 @@
+[Unit]
+Description=Setup CAN interface for ARS408 Radar
+After=network.target
+Before=roscore.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/modprobe can
+ExecStart=/usr/sbin/modprobe can_raw
+ExecStart=/usr/sbin/modprobe mttcan
+ExecStart=/usr/sbin/ip link set can0 up type can bitrate 500000
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

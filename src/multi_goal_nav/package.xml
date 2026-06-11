@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>multi_goal_nav</name>
+  <version>0.0.0</version>
+  <description>The multi_goal_nav package</description>
+
+  <maintainer email="todo@todo.todo">todo</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>actionlib</depend>
+  <depend>move_base_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf</depend>
+
+  <export>
+  </export>
+</package>

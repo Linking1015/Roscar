@@ -1,0 +1,45 @@
+<launch>
+
+  <!-- 1️⃣ 启动底盘与传感器 -->
+  <include file="$(find start_roscar)/launch/start_roscar.launch"/>
+
+  <!-- 稍等 3 秒，确保 TF / scan / odom 已就绪 -->
+  <group>
+    <rosparam param="delay_gmapping">3.0</rosparam>
+
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+      <param name="base_frame" value="base_footprint"/>
+      <param name="odom_frame" value="odom_combined"/>
+      <param name="map_frame"  value="map"/>
+
+      <remap from="scan" to="/scan"/>
+
+      <!-- ===== 扫描处理 ===== -->
+      <param name="throttle_scans" value="1"/>
+      <param name="maxUrange" value="8.0"/>
+      <param name="maxRange" value="8.0"/>
+
+      <!-- ===== 扫描匹配（使用默认值，仅微调） ===== -->
+      <param name="sigma" value="0.05"/>
+      <param name="kernelSize" value="1"/>
+      <param name="lstep" value="0.05"/>
+      <param name="astep" value="0.05"/>
+      <param name="iterations" value="5"/>
+      <param name="minimumScore" value="0"/>
+
+      <!-- ===== 粒子滤波器 ===== -->
+      <param name="particles" value="80"/>
+      <param name="resampleThreshold" value="0.5"/>
+
+      <!-- ===== 地图更新条件 ===== -->
+      <param name="linearUpdate" value="0.15"/>
+      <param name="angularUpdate" value="0.15"/>
+      <param name="temporalUpdate" value="0.5"/>
+
+      <!-- ===== 地图属性 ===== -->
+      <param name="delta" value="0.05"/>
+      <param name="occ_thresh" value="0.25"/>
+    </node>
+  </group>
+
+</launch>

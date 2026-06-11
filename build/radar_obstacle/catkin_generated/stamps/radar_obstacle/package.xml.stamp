@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>radar_obstacle</name>
+  <version>0.0.1</version>
+  <description>Pure millimeter-wave radar obstacle detection — filter ARS408 cluster targets by distance, publish to costmap</description>
+
+  <maintainer email="gdut@todo.todo">gdut</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>visualization_msgs</depend>
+</package>

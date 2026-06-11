@@ -1,0 +1,8 @@
+prefix=/home/gdut/catkin_roscar/devel
+
+Name: micro_radar_yolo
+Description: Description of micro_radar_yolo
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: rospy std_msgs sensor_msgs visualization_msgs geometry_msgs cv_bridge tf2_ros tf2_geometry_msgs message_filters
